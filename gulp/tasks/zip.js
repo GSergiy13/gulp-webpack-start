@@ -8,8 +8,7 @@ export const zip = () => {
 			app.plugins.notify.onError({
 				title: "ZIP",
 				message: "Error: <%= error.message %>"
-			}))
-		)
+			})))
 		.pipe(zipPlugin(`${app.path.rootFolder}.zip`))
 		.pipe(app.gulp.dest('./'));
 }

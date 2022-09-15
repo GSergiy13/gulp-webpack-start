@@ -45,9 +45,7 @@ import {
 	ttfToWoff,
 	fontsStyle
 } from "./gulp/tasks/fonts.js";
-import {
-	svgSpriteTask
-} from "./gulp/tasks/svg-sprive.js";
+
 import {
 	zip
 } from "./gulp/tasks/zip.js";
@@ -68,7 +66,7 @@ function watcher() {
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 
 // Основные задачи
-const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images, svgSpriteTask));
+const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images));
 
 // Построение сценариев выполнения задач
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
@@ -77,9 +75,7 @@ const deployZIP = gulp.series(reset, mainTasks, zip);
 const deployFTP = gulp.series(reset, mainTasks, ftp);
 
 // Экспорт сценариев
-export {
-	svgSpriteTask
-}
+
 export {
 	dev
 }

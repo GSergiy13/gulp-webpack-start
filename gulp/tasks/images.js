@@ -1,4 +1,3 @@
-import webp from "gulp-webp";
 import imagemin from "gulp-imagemin";
 
 export const images = () => {
@@ -7,15 +6,9 @@ export const images = () => {
 			app.plugins.notify.onError({
 				title: "IMAGES",
 				message: "Error: <%= error.message %>"
-			}))
-		)
+			})))
 		.pipe(app.plugins.newer(app.path.build.images))
-		.pipe(
-			app.plugins.if(
-				app.isBuild,
-				webp()
-			)
-		)
+
 		.pipe(
 			app.plugins.if(
 				app.isBuild,
@@ -39,9 +32,11 @@ export const images = () => {
 				app.isBuild,
 				imagemin({
 					progressive: true,
-					svgoPlugins: [{ removeViewBox: false }],
+					svgoPlugins: [{
+						removeViewBox: false
+					}],
 					interlaced: true,
-					optimizationLevel: 3 // 0 to 7
+					optimizationLevel: 0 // 0 to 7
 				})
 			)
 		)

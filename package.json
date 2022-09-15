@@ -8,8 +8,7 @@
 		"dev": "gulp",
 		"build": "gulp build --build",
 		"zip": "gulp deployZIP --build",
-		"deploy": "gulp deployFTP --build",
-		"svgSprive": "gulp svgSpriteTask"
+		"deploy": "gulp deployFTP --build"
 	},
 	"author": "FLS",
 	"license": "ISC",

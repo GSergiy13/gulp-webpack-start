@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-@@include('html/head.html',{
-"title":"Главная"
-})
-
+	@@include('html/head.html',{
+	"title":"Головна"
+	})
 <body>
-	@@include('html/header.html',{})
+	<header class="header">
+		<div class="container">
+			header
+		</div>
+	</header>
+	<section class="promo">
+		<div class="container">
+			<h1>
+				Start Page
+			</h1>
+
+			<button data-categoryButton="main" class="btn">
+				Open Modal
+			</button>
+			<button data-categoryButton="contact" class="btn">
+				Open contact
+			</button>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="container">
+			modal
+		</div>
+	</footer>
 
 
-	@@include('html/section.html', {})
-	@@include('html/footer.html',{})
+	 <div class="modal" data-categoryModal="main">
+		<div class="modal__close">close</div>
 
+		<div class="modal-content">
+			modal
+		</div>
+	</div> 
+
+	<div class="modal" data-categoryModal="contact">
+		<div class="modal__close">close</div>
+
+		<div class="modal-content">
+			modal contact
+		</div>
+	</div> 
 	<script src="js/app.min.js"></script>
 </body>
 
